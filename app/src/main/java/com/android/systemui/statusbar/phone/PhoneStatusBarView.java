@@ -229,8 +229,10 @@ public class PhoneStatusBarView extends PanelBar {
                         barConsumedEvent ? 1 : 0);
             }
         }
-
-        return barConsumedEvent || super.onTouchEvent(event);
+        //add by lym start
+        return false;
+//        return barConsumedEvent || super.onTouchEvent(event);
+        //end
     }
 
     @Override

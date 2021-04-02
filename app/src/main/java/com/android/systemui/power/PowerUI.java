@@ -16,6 +16,7 @@
 
 package com.android.systemui.power;
 
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -24,6 +25,7 @@ import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.database.ContentObserver;
+import android.os.AsyncTask;
 import android.os.BatteryManager;
 import android.os.Handler;
 import android.os.IThermalEventListener;
@@ -38,6 +40,9 @@ import android.provider.Settings;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.Slog;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.settingslib.fuelgauge.Estimate;
@@ -665,4 +670,40 @@ public class PowerUI extends SystemUI {
             }
         }
     }
+
+    /************************** add by lym **************************/
+    private AlertDialog mShutdownConfirmDialog;
+    public static final String ACTION_POWER_CONNECTED = "com.status.power.connected";
+    public static final String ACTION_POWER_DISCONNECTED = "com.status.power.disconnected";
+
+    void dismissConfirmShutdown() {
+        if (mShutdownConfirmDialog != null && mShutdownConfirmDialog.isShowing()) {
+            mShutdownConfirmDialog.dismiss();
+        }
+    }
+
+    private void powerConnected() {
+        dismissConfirmShutdown();
+        mContext.sendBroadcast(new Intent(ACTION_POWER_CONNECTED));
+    }
+
+    private void powerDisconnected() {
+//        showConfirmShutdown();
+        mContext.sendBroadcast(new Intent(ACTION_POWER_DISCONNECTED));
+    }
+
+    void shutDown() {
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                Intent shotdownIntent = new Intent("TXZ_ACTION_CLOSE_SCREEN");
+                mContext.sendBroadcast(shotdownIntent);
+                Intent intent = new Intent(Intent.ACTION_REQUEST_SHUTDOWN);
+                intent.putExtra(Intent.EXTRA_KEY_CONFIRM, false);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivityAsUser(intent, UserHandle.CURRENT);
+            }
+        });
+    }
+
 }

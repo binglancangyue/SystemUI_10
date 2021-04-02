@@ -88,5 +88,5 @@
 
     <!-- Keyboard shortcuts helper -->
     <dimen name="ksh_layout_width">488dp</dimen>
-    <dimen name="navigation_key_padding_vertical">2dp</dimen>
+    <dimen name="navigation_key_padding_vertical">10dp</dimen>
 </resources>

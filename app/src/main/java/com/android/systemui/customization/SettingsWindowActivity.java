@@ -33,7 +33,7 @@ import java.lang.ref.WeakReference;
 
 /**
  * @author Altair
- * @date :2020.01.07 下午 02:16
+ * @date :2021.03.17 下午 02:16
  * @description:
  */
 public class SettingsWindowActivity extends Activity implements View.OnClickListener,
@@ -315,6 +315,7 @@ public class SettingsWindowActivity extends Activity implements View.OnClickList
         RelativeLayout btnDvrFormat = findViewById(R.id.btn_dvr_format);
         RelativeLayout btnDvrBT = findViewById(R.id.btn_dvr_bt);
         RelativeLayout btnDvrSystemSettings = findViewById(R.id.btn_dvr_settings);
+        btnDvrBT.setVisibility(View.GONE);
 
         rbRecordTime1.setOnClickListener(cameraOnClickListener);
         rbRecordTime3.setOnClickListener(cameraOnClickListener);

@@ -50,7 +50,7 @@ import static com.android.settingslib.display.BrightnessUtils.convertGammaToLine
 
 /**
  * @author Altair
- * @date :2019.10.25 上午 09:43
+ * @date :2021.03.25 上午 09:43
  * @description: 设置弹窗功能工具类
  */
 public class SettingsFunctionTool {

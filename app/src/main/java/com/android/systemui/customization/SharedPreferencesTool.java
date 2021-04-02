@@ -9,7 +9,7 @@ import com.android.systemui.SystemUIApplication;
 
 /**
  * @author Altair
- * @date :2019.10.28 上午 10:03
+ * @date :2021.03.18 上午 10:03
  * @description: SharedPreferences 工具
  */
 public class SharedPreferencesTool {

@@ -2,7 +2,7 @@ package com.android.systemui.customization.bean;
 
 /**
  * @author Altair
- * @date :2020.04.09 下午 05:32
+ * @date :2021.03.19 下午 05:32
  * @description:
  */
 public class StatusBean {

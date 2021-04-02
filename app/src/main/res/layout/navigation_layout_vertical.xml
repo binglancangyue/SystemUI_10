@@ -42,8 +42,6 @@
             android:clipChildren="false" />
 
         <com.android.systemui.statusbar.phone.ReverseLinearLayout
-            android:background="@drawable/icon_bg_7in"
-            android:paddingVertical="5dp"
             android:id="@+id/center_group"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
